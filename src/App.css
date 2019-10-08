@@ -45,3 +45,9 @@ a:focus{
 body{
   font-family: 'Montserrat', sans-serif !important;
 }
+.sectionWrap .container {
+  max-width: 1320px;
+  padding: 0;
+  position: relative;
+  z-index: 10;
+}

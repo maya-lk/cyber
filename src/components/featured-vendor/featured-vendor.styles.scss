@@ -1,0 +1,16 @@
+#featuredVendorWrap {
+    padding: 4rem 0;
+    position: relative;
+    background-color: #f4f4f4;
+
+    .clipbg {
+        background-color: #f0eeef;
+        -webkit-clip-path: polygon(0 0,100% 0,34% 100%,0 56%,0 38%);
+        clip-path: polygon(0 0,100% 0,34% 100%,0 56%,0 38%);
+        min-height: 545px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+}
