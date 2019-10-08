@@ -2,9 +2,9 @@ import React from 'react';
 
 import './footer-app.styles.scss';
 
-import API from '../../lib/api';
-import AppStore from '../../assets/images/app-store.png';
-import GPlay from '../../assets/images/g-play.png';
+import API from '../../../lib/api';
+import AppStore from '../../../assets/images/app-store.png';
+import GPlay from '../../../assets/images/g-play.png';
 
 class FooterApp extends React.Component {
     constructor(){

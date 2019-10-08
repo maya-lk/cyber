@@ -5,7 +5,7 @@ import { faFacebookF , faInstagram , faTwitter , faYoutube } from '@fortawesome/
 
 import './footer-social.styles.scss';
 
-import API from '../../lib/api';
+import API from '../../../lib/api';
 
 class FooterSocial extends React.Component {
     constructor(){

@@ -2,7 +2,7 @@ import React from 'react';
 
 import './footer-address.styles.scss';
 
-import API from '../../lib/api';
+import API from '../../../lib/api';
 
 class FooterAddress extends React.Component {
     constructor(){

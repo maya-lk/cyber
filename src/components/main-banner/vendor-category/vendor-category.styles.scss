@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+.clipPathWrap {
+    position: absolute;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    bottom: 0;
+
+    .clipPath {
+        background-color: #5da9ff;
+        -webkit-clip-path: polygon(30% 0,100% 53%,100% 100%,0 100%,0 38%);
+        clip-path: polygon(35% 0,100% 76%,100% 100%,0 100%,0 38%);
+        min-height: 900px;
+    }
+
+    .clipTextWrap {
+        position: absolute;
+        left: 18rem;
+        top: -15rem;
+        color: #fff;
+        font-weight: 800;
+        line-height: 1;
+        font-size: 4rem;
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        max-width: 858px;
+
+        .text1 {
+            text-align: center;
+        }
+
+        .text2 {
+            font-size: 33rem;
+            position: relative;
+            top: 75px;
+            font-family: 'Roboto',sans-serif;
+            margin: 0 -64px;
+        }
+
+        .text3 {
+            font-size: 11rem;
+            position: relative;
+            top: 14px;
+            font-weight: 700;
+        }
+        .text4 {
+            font-size: 3.5rem;
+            width: 100%;
+            text-align: center;
+            font-weight: 300;
+            margin-top: 2rem;
+        }
+    }
+
+    .vendorCategory {
+        position: absolute;
+        left: 0;
+        z-index: 10;
+        bottom: 0;
+        width: 100%;
+        max-width: 1320px;
+        margin: auto;
+        right: 0;
+
+        h4 {
+            color: #fff;
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+
+        .termWrap {
+            padding-bottom: 1rem;
+        }
+    }
+}

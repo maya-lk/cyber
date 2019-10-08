@@ -1,0 +1,19 @@
+#mainBannerWrap {
+    background-color: #5da9ff;
+    padding-top: 9rem;
+    min-height: 1500px;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+
+    .rotateClipPath {
+        background-color: #5da9ff;
+        -webkit-clip-path: polygon(0 0,100% 50%,100% 50%,0 100%,0 50%);
+        clip-path: polygon(0 0,100% 50%,100% 50%,0 100%,0 50%);
+        min-height: 330px;
+        width: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
