@@ -6,7 +6,7 @@ import './footer.styles.scss';
 import CreatorLogo from '../../assets/images/maya-logo.png';
 
 import FooterAddress from '../footer-address/footer-address.component';
-import FooterMenu from '../footer-menu/footer-menu.component';
+import FooterMenu from './footer-menu/footer-menu.component';
 import FooterApp from '../footer-app/footer-app.component';
 import FooterSocial from '../footer-social/footer-social.component';
 
