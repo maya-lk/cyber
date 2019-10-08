@@ -1,0 +1,14 @@
+.mainNavWrap {
+    justify-content: space-between;
+    padding: 3rem 5rem;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    #mainNavi {
+        width: auto;
+        flex-grow: unset;
+    }
+}

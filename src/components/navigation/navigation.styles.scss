@@ -1,0 +1,23 @@
+.mainNavigation{
+    align-items: center;
+    a.nav-link {
+        display: inline-block;
+        color: #fff !important;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: .9rem;
+        padding: 0 1rem !important;
+        text-decoration: none;
+
+        &.becomeBtn {
+            background-color: #5da9ff;
+            font-size: 1rem;
+            padding: .75rem 1.5rem !important;
+            border-radius: 0 33px 33px;
+            -webkit-border-radius: 0 33px 33px;
+            -moz-border-radius: 0 33px 33px;
+            -ms-border-radius: 0 33px 33px;
+            -o-border-radius: 0 33px 33px;
+}
+    }
+}

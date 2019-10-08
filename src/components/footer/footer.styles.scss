@@ -1,0 +1,50 @@
+.footer {
+    background-color: #121933;
+    position: relative;
+
+    .footerClip {
+        background-color: #0e142c;
+        -webkit-clip-path: polygon(30% 0,100% 100%,100% 100%,0 100%,0 50%);
+        clip-path: polygon(30% 0,100% 100%,100% 100%,0 100%,0 50%);
+        min-height: 250px;
+        width: 45%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+
+    .topWrapper {
+        padding: 4rem 0 0;
+        position: relative;
+        z-index: 10;
+
+        .menuContactWrap {
+            width: 68%;
+        }
+
+        .container {
+            border-bottom: 1px solid #090d1a;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .bottomWrapper {
+        padding-bottom: 2rem;
+        position: relative;
+        z-index: 10;
+
+        .creatorWrap {
+            color: #5b5e6a;
+            font-weight: 600;
+            font-size: .75rem;
+        }
+    }
+
+    .container {
+        max-width: 1320px;
+        padding: 0;
+        position: relative;
+        z-index: 10;
+    }
+}

@@ -1,0 +1,18 @@
+.menuWrap {
+    width: 50%;
+
+    .footerQuickLinks {
+        flex-direction: unset;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .nav-link{
+            width: 50%;
+            color: #525974;
+            font-weight: 600;
+            font-size: .9rem;
+            padding-bottom: .5rem;
+            text-decoration: none;
+        }
+    }
+}
