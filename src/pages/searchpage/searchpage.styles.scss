@@ -1,0 +1,90 @@
+.searchPage {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .searchSidebarWrap {
+        width: 40%;
+        background-color: #5642c5;
+        padding: 2rem 2rem;
+        overflow: hidden;
+        position: relative;
+
+        .searchQuery {
+            padding-top: 6rem;
+            transition: 1s all ease-in-out;
+            color: #fff;
+
+            &.hideQuery {
+                transform: translateX(-100%);            
+            }
+
+            h1 {
+                font-weight: 800;
+                font-size: 4.5rem;
+            }
+
+            .searchItem {
+                color: #1a172a;
+                font-weight: 800;
+                padding-bottom: 0;
+                margin-bottom: 3rem;
+                display: inline-block;
+                font-size: 3.7rem;
+                text-transform: capitalize;
+                position: relative;
+                
+                &::after {
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    bottom: 11px;
+                    content: "";
+                    height: 2px;
+                    background-color: #1a172a;                
+                }
+            }
+
+            .anotherSearch{
+                h5 {
+                    margin-bottom: 0;                
+                }
+
+                .openSearch {
+                    margin-bottom: 0;
+                    border-bottom: 1px solid currentColor;
+                    display: inline-block;
+                    cursor: pointer;                
+                }
+            }
+        }
+
+        .searchBarWrap {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            background-color: #5642c5;
+            transition: 1s all ease-in-out;
+            transform: translateX(-100%);        
+
+            &.openSeach{
+                transform: translateX(0); 
+            }
+        }
+    }
+
+    .searchItemWrapper {
+        width: 60%;
+        padding: 7rem 3rem 3rem;
+    }
+}
+.mainNavigation a.nav-link {
+    color: #000 !important;
+}
+.mainNavigation a.nav-link.becomeBtn {
+    color: #fff !important;
+}

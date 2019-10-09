@@ -5,9 +5,10 @@ import { createBrowserHistory } from 'history';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import HomePage from './pages/homepage/home.components';
 import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
+import HomePage from './pages/homepage/home.components';
+import SearchPage from './pages/searchpage/searchpage.component';
 
 const BaseURL = ( process.env.NODE_ENV === 'development' ) ? '/' : process.env.PUBLIC_URL ;
 
@@ -21,6 +22,7 @@ function App() {
       <Header/>
       <Switch>
         <Route exact path={`${BaseURL}`} component={HomePage} />
+        <Route exact path={`${BaseURL}search/:id`} component={SearchPage} />
       </Switch>
       <Footer/>
     </div>

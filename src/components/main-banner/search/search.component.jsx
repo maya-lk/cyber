@@ -5,22 +5,22 @@ import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { withRouter } from 'react-router-dom';
 
 import './search.styles.scss';
 
 class Search extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
 
         this.state = {
             searchItem : ''
         }
     }
 
-    handleSubmit = event => {
+    handleClick = event => {
         event.preventDefault();
-
-
+        this.props.history.push(`/search/${this.state.searchItem}`);
     }
 
     handleChange = event => {
@@ -45,7 +45,11 @@ class Search extends React.Component{
                         />
                         <InputGroup.Append>
                             <InputGroup.Text id="searchSubmit">
-                                <Button type="submit" className="searchBtn">
+                                <Button 
+                                    type="submit" 
+                                    className="searchBtn"
+                                    onClick={this.handleClick}
+                                >
                                     <FontAwesomeIcon icon={faSearch}/>
                                 </Button>
                             </InputGroup.Text>
@@ -57,4 +61,4 @@ class Search extends React.Component{
     }
 }
 
-export default Search;
+export default withRouter(Search);

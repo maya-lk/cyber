@@ -8,8 +8,8 @@ import API from '../../lib/api';
 import Navigation from '../navigation/navigation.component';
 
 class Header extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
 
         this.state = {
             siteLogo : ''
