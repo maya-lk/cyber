@@ -13,4 +13,26 @@
         top: 0;
         width: 100%;
     }
+
+    h2 {
+        color: #5daafe;
+        font-weight: 300;
+        font-size: 1.8rem;
+    }
+
+    .btn.loadMore {
+        width: 100%;
+        margin-top: 3rem;
+        background-color: #4497f5;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #fff;
+        padding: 1rem 0;
+        border-radius: 33px;
+        font-size: 1.2rem;
+    }
+
+    #featuredSeller {
+        margin-top: 2rem;
+    }
 }

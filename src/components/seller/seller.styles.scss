@@ -1,0 +1,42 @@
+.seller{
+    .img {
+        min-height: 270px;
+        background-color: #d0d0d0;
+        margin-bottom: 2rem;
+        border-radius: 0 1rem 1rem;
+    }
+
+    .titleWrap {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+
+        h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #505050;
+            font-weight: 600;
+        }
+    }
+
+    .badge {
+        background-color: #e0e0e0;
+        padding: 8px 13px;
+        color: #505050;
+        font-weight: 400;
+        
+        .fa-star {
+            color: #6d6d6d;
+        }
+
+        span {
+            font-weight: 600;
+        }
+    }
+
+    .price {
+        font-weight: 700;
+        font-size: .9rem;
+        color: #888;
+    }
+}
