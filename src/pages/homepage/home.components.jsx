@@ -7,6 +7,7 @@ import FeaturedVendor from '../../components/featured-vendor/featured-vendor.com
 import TermSlider from '../../components/term-slider/term-slider.component';
 import Services from '../../components/services/services.component';
 import Download from '../../components/download/download.component';
+import Clients from '../../components/clients/clients.component';
 
 const HomePage = () => (
     <div className="homepage">
@@ -15,6 +16,7 @@ const HomePage = () => (
         <TermSlider />
         <Services/>
         <Download/>
+        <Clients/>
     </div>
 );
 
