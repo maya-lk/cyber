@@ -1,0 +1,67 @@
+#downloadAppWrap {
+    background-color: #8198ff;
+    padding: 8rem 0;
+    overflow: hidden;
+    position: relative;
+
+    .downloadClip {
+        background-color: #3876e5;
+        -webkit-clip-path: polygon(0 0,100% 0,34% 100%,0 56%,0 38%);
+        clip-path: polygon(0 0,100% 0,34% 100%,0 56%,0 38%);
+        min-height: 350px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .container {
+        max-width: 1630px;
+
+        .phoneWrap {
+            width: 60%;
+            position: relative;
+
+            .phoneImg {
+                position: relative;
+                z-index: 5;
+                animation-name: bounce;
+                -webkit-animation-name: bounce;
+                -webkit-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+                -webkit-animation-duration: 3s;
+                animation-duration: 3s;
+                -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+            }
+
+            .phoneShadow {
+                background-size: contain;
+                background-repeat: no-repeat;
+                display: inline-block;
+                width: 100%;
+                min-height: 490px;
+                position: absolute;
+                left: -3rem;
+                top: 11rem;
+            }
+        }
+
+        .contentWrap {
+            width: 40%;
+            color: #fff;
+
+            h3 {
+                color: #fff;
+                text-transform: uppercase;
+                font-weight: 800;
+                font-size: 5rem;
+                margin-bottom: 2rem;
+            }
+
+            .appWrap {
+                margin-top: 4rem;
+            }
+        }
+    }
+}
