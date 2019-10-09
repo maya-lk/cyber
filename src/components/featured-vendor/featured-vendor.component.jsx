@@ -11,6 +11,8 @@ import API from '../../lib/api';
 
 import Seller from '../seller/seller.component';
 
+const BaseURL = ( process.env.NODE_ENV === 'development' ) ? '/' : process.env.PUBLIC_URL ;
+
 class FeaturedVendor extends React.Component {
     constructor(){
         super();
@@ -72,7 +74,7 @@ class FeaturedVendor extends React.Component {
                                 ))
                         }
                     </OwlCarousel>
-                    <Link to="/sellers" className="btn loadMore">Load More</Link>
+                    <Link to={`${BaseURL}/sellers`} className="btn loadMore">Load More</Link>
                 </Container>
             </div>
         )
