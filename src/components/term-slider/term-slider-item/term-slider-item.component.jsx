@@ -9,7 +9,7 @@ const TermSliderItem = ({ id , imageUrl , imageAlt , name , sliderImageUrl , sli
         </div>
         <h5>{name}</h5>
         <div className="animation">
-            <img class="animateImg" src={sliderImageUrl} alt={sliderImageAlt} data-animate={sliderGitUrl} />
+            <img className="animateImg" src={sliderImageUrl} alt={sliderImageAlt} data-animate={sliderGitUrl} />
         </div>
     </div>
 );

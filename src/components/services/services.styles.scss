@@ -1,0 +1,74 @@
+#servicesWrap {
+    padding: 4rem 0;
+
+    .services {
+        width: 30%;
+        
+        &.leftServices {
+            padding-top: 3rem;        
+        }
+
+        &.rightServices {
+            padding-top: 10rem;        
+        }
+    }
+
+    .middleImage {
+        width: 35%;
+        animation-name: bounce;
+        -webkit-animation-name: bounce;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        -webkit-animation-duration: 2s;
+        animation-duration: 2s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;    
+    }
+}
+
+/******************** Animations **********************/
+@-webkit-keyframes bounce {
+    from,
+    to {
+        -webkit-animation-timing-function: ease;
+        animation-timing-function: ease;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    40%,
+    43% {
+        -webkit-animation-timing-function: ease;
+        animation-timing-function: ease;
+        -webkit-transform: translate3d(0, 18px, 0);
+        transform: translate3d(0, 18px, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(0, -4px, 0);
+        transform: translate3d(0, -4px, 0);
+    }
+}
+
+@keyframes bounce {
+    from,
+    to {
+        -webkit-animation-timing-function: ease;
+        animation-timing-function: ease;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    40%,
+    43% {
+        -webkit-animation-timing-function: ease;
+        animation-timing-function: ease;
+        -webkit-transform: translate3d(0, 18px, 0);
+        transform: translate3d(0, 18px, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(0, -4px, 0);
+        transform: translate3d(0, -4px, 0);
+    }
+}
