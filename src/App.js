@@ -11,7 +11,7 @@ import Header from './components/header/header.component';
 import HomePage from './pages/homepage/home.components';
 import SearchPage from './pages/searchpage/searchpage.component';
 
-const BaseURL = ( process.env.NODE_ENV === 'development' ) ? '/' : process.env.PUBLIC_URL ;
+const BaseURL = ( process.env.NODE_ENV === 'development' ) ? '/' : `${process.env.PUBLIC_URL}/` ;
 
 export const history = createBrowserHistory({
   basename: BaseURL
@@ -56,6 +56,7 @@ const bounceTransition = {
 function App() {
   return (
     <div>
+      {console.log('BaseURL' , BaseURL)}
       <Header/>
       <AnimatedSwitch
         atEnter={bounceTransition.atEnter}

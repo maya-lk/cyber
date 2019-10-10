@@ -7,6 +7,8 @@ import API from '../../lib/api';
 
 import Navigation from '../navigation/navigation.component';
 
+const BaseURL = ( process.env.NODE_ENV === 'development' ) ? '/' : `${process.env.PUBLIC_URL}/` ;
+
 class Header extends React.Component{
     constructor(props){
         super(props);
@@ -27,7 +29,7 @@ class Header extends React.Component{
     render(){
         return(
             <Navbar collapseOnSelect expand="md" className="mainNavWrap">
-                <Navbar.Brand href="/">
+                <Navbar.Brand href={`${BaseURL}`}>
                     <img src={this.state.siteLogo} alt="Cyber" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="mainNavi" />

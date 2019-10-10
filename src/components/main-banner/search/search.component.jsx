@@ -9,6 +9,8 @@ import { withRouter } from 'react-router-dom';
 
 import './search.styles.scss';
 
+const BaseURL = ( process.env.NODE_ENV === 'development' ) ? '/' : `${process.env.PUBLIC_URL}/` ;
+
 class Search extends React.Component{
     constructor(props){
         super(props);
@@ -20,7 +22,7 @@ class Search extends React.Component{
 
     handleClick = event => {
         event.preventDefault();
-        this.props.history.push(`/search/${this.state.searchItem}`);
+        this.props.history.push(`${BaseURL}search/${this.state.searchItem}`);
         setTimeout(
             function() {
                 this.setState({ searchItem : '' });
