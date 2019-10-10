@@ -1,14 +1,15 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
+import loadable from '@loadable/component';
 
 import './footer.styles.scss';
 
 import CreatorLogo from '../../assets/images/maya-logo.png';
 
-import FooterAddress from '../footer/footer-address/footer-address.component';
-import FooterMenu from '../footer/footer-menu/footer-menu.component';
-import FooterApp from '../footer/footer-app/footer-app.component';
-import FooterSocial from '../footer/footer-social/footer-social.component';
+const FooterAddress = loadable(() => import('../footer/footer-address/footer-address.component'));
+const FooterMenu = loadable(() => import('../footer/footer-menu/footer-menu.component'));
+const FooterApp = loadable(() => import('../footer/footer-app/footer-app.component'));
+const FooterSocial = loadable(() => import('../footer/footer-social/footer-social.component'));
 
 const Footer = () => (
     <div className="footer">

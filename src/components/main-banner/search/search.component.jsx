@@ -21,11 +21,17 @@ class Search extends React.Component{
     handleClick = event => {
         event.preventDefault();
         this.props.history.push(`/search/${this.state.searchItem}`);
+        setTimeout(
+            function() {
+                this.setState({ searchItem : '' });
+            }
+            .bind(this),
+            3000
+        );        
     }
 
     handleChange = event => {
         const { value } = event.target;
-
         this.setState({ searchItem : value })
     }
 
