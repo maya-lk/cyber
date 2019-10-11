@@ -2,14 +2,15 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { spring, AnimatedSwitch } from 'react-router-transition';
 import { createBrowserHistory } from 'history';
+import loadable from '@loadable/component';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Header from './components/header/header.component';
-//import Footer from './components/footer/footer.component';
-import HomePage from './pages/homepage/home.components';
-import SearchPage from './pages/searchpage/searchpage.component';
+const Header = loadable(() => import('./components/header/header.component'));
+const HomePage = loadable(() => import('./pages/homepage/home.components'));
+const SearchPage = loadable(() => import('./pages/searchpage/searchpage.component'));
+const AboutPage = loadable(() => import('./pages/aboutpage/aboutpage.component'));
 
 const BaseURL = ( process.env.NODE_ENV === 'development' ) ? '/' : `${process.env.PUBLIC_URL}/` ;
 
@@ -68,6 +69,7 @@ function App() {
         <Route exact path={`${BaseURL}`} component={HomePage} />
         <Route exact path={`${BaseURL}search`} component={SearchPage} />
         <Route exact path={`${BaseURL}search/:id`} component={SearchPage} />
+        <Route exact path={`${BaseURL}about`} component={AboutPage} />
       </AnimatedSwitch>
     </div>
   );

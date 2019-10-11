@@ -18,6 +18,8 @@ const Footer = loadable(() => import('../../components/footer/footer.component')
 const SearchBar = loadable(() => import('../../components/main-banner/search/search.component'), {
     fallback: <div>Loading...</div>,
 });
+
+document.body.classList.add('search-body');
  
 class SearchPage extends React.Component {
     

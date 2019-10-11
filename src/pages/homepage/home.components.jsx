@@ -26,6 +26,7 @@ const Footer = loadable(() => import('../../components/footer/footer.component')
     fallback: <div>Loading...</div>,
 });
 
+document.body.classList.add('home-body');
 
 const HomePage = () => (
     <div className="homepage">
