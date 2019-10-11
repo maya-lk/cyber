@@ -39,18 +39,18 @@
         .phoneImg1 {
             position: absolute;
             z-index: 20;
-            bottom: 0;
-            left: 16%;
+            bottom: 27%;
+            left: 13%;
             transition: 1.5s all ease-in-out;
             -webkit-transition: 1.5s all ease-in-out;
             -moz-transition: 1.5s all ease-in-out;
             -ms-transition: 1.5s all ease-in-out;
             -o-transition: 1.5s all ease-in-out;
-            transform: translateY(-100%);
-            -webkit-transform: translateY(-100%);
-            -moz-transform: translateY(-100%);
-            -ms-transform: translateY(-100%);
-            -o-transform: translateY(-100%);
+            transform: translateY(-130%);
+            -webkit-transform: translateY(-130%);
+            -moz-transform: translateY(-130%);
+            -ms-transform: translateY(-130%);
+            -o-transform: translateY(-130%);
             &.showImage{
                 transform: translateY(0);
                 -webkit-transform: translateY(0);
@@ -58,7 +58,8 @@
                 -ms-transform: translateY(0);
                 -o-transform: translateY(0);
             }
-            &.animationBounce{                
+            
+            .animationBounce{                
                 animation-name: bounce;
                 -webkit-animation-name: bounce;
                 -webkit-animation-iteration-count: infinite;
@@ -68,22 +69,42 @@
                 -webkit-animation-fill-mode: both;
                 animation-fill-mode: both;
             }
+
+            .shadow {
+                box-shadow: 0 0 0 !important;
+                display: inline-block;
+                width: 100%;
+                position: absolute;
+                height: 92px;
+                bottom: -38%;
+                left: 0;
+                opacity: 0;
+                transition: 0.5s all ease;
+                -webkit-transition: 0.5s all ease;
+                -moz-transition: 0.5s all ease;
+                -ms-transition: 0.5s all ease;
+                -o-transition: 0.5s all ease;
+
+                &.showShadow{
+                    opacity: 1;
+                }
+            }
         }
 
         .phoneImg2 {
             position: absolute;
-            right: 0;
-            bottom: 0;
+            right: 14%;
+            bottom: 20%;
             transition: 1.5s all ease-in-out;
             -webkit-transition: 1.5s all ease-in-out;
             -moz-transition: 1.5s all ease-in-out;
             -ms-transition: 1.5s all ease-in-out;
             -o-transition: 1.5s all ease-in-out;
-            transform: translateY(100%);
-            -webkit-transform: translateY(100%);
-            -moz-transform: translateY(100%);
-            -ms-transform: translateY(100%);
-            -o-transform: translateY(100%);
+            transform: translateY(130%);
+            -webkit-transform: translateY(130%);
+            -moz-transform: translateY(130%);
+            -ms-transform: translateY(130%);
+            -o-transform: translateY(130%);
             &.showImage{
                 transform: translateY(0);
                 -webkit-transform: translateY(0);
@@ -91,7 +112,8 @@
                 -ms-transform: translateY(0);
                 -o-transform: translateY(0);
             }
-            &.animationBounce{                
+            
+            .animationBounce{                
                 animation-name: bounce;
                 -webkit-animation-name: bounce;
                 -webkit-animation-iteration-count: infinite;
@@ -100,6 +122,26 @@
                 animation-duration: 4s;
                 -webkit-animation-fill-mode: both;
                 animation-fill-mode: both;
+            }
+
+            .shadow {
+                box-shadow: 0 0 0 !important;
+                display: inline-block;
+                width: 100%;
+                position: absolute;
+                height: 92px;
+                bottom: -32%;
+                left: 0;
+                opacity: 0;                
+                transition: 0.5s all ease;
+                -webkit-transition: 0.5s all ease;
+                -moz-transition: 0.5s all ease;
+                -ms-transition: 0.5s all ease;
+                -o-transition: 0.5s all ease;
+
+                &.showShadow{
+                    opacity: 1;
+                }
             }
         }
     }

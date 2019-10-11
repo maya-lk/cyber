@@ -5,6 +5,8 @@ import './aboutpage.styles.scss';
 
 import PhoneImage1 from '../../assets/images/about-phone-1.png';
 import PhoneImage2 from '../../assets/images/about-phone-2.png';
+import PhoneImage1Shadow from '../../assets/images/about-phone-1-shadow.png';
+import PhoneImage2Shadow from '../../assets/images/about-phone-2-shadow.png';
 
 const Footer = loadable(() => import('../../components/footer/footer.component'), {
     fallback: <div>Loading...</div>,
@@ -57,16 +59,28 @@ export class AboutPage extends React.Component {
         return (
             <div className="aboutpage">
                 <div className="aboutBannerWrap">
-                    <img 
-                        src={PhoneImage1} 
-                        alt="phone" 
-                        className={`${ this.state.imageOneShow ? 'showImage' : '' } ${ this.state.imageOneAnim ? 'animationBounce' : '' } phoneImg1`} 
-                    />
-                    <img 
-                        src={PhoneImage2} 
-                        alt="phone" 
-                        className={`${ this.state.imageTwoShow ? 'showImage' : '' } ${ this.state.imageTwoAnim ? 'animationBounce' : '' } phoneImg2`} 
-                    />
+                    <div className={`${ this.state.imageOneShow ? 'showImage' : '' } phoneImg1`}>
+                        <img 
+                            src={PhoneImage1} 
+                            alt="phone"
+                            className={`${ this.state.imageOneAnim ? 'animationBounce' : '' }`}                            
+                        />
+                        <span 
+                            className={`${ this.state.imageTwoAnim ? 'showShadow' : '' } shadow`}
+                            style={{ backgroundImage : `url(${PhoneImage1Shadow})` }}
+                        />
+                    </div>
+                    <div className={`${ this.state.imageTwoShow ? 'showImage' : '' } phoneImg2`}>
+                        <img 
+                            src={PhoneImage2} 
+                            alt="phone"
+                            className={`${ this.state.imageOneAnim ? 'animationBounce' : '' }`}           
+                        />
+                        <span 
+                            className={`${ this.state.imageTwoAnim ? 'showShadow' : '' } shadow`}
+                            style={{ backgroundImage : `url(${PhoneImage2Shadow})` }}
+                        />
+                    </div>
                     <h1>CYBER</h1>
                     <h3>REDIFINING THE WAY OF LIFE</h3>
                 </div>
