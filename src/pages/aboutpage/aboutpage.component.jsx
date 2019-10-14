@@ -1,5 +1,6 @@
 import React from 'react';
 import loadable from '@loadable/component';
+import Container from 'react-bootstrap/Container';
 
 import './aboutpage.styles.scss';
 
@@ -7,6 +8,11 @@ import PhoneImage1 from '../../assets/images/about-phone-1.png';
 import PhoneImage2 from '../../assets/images/about-phone-2.png';
 import PhoneImage1Shadow from '../../assets/images/about-phone-1-shadow.png';
 import PhoneImage2Shadow from '../../assets/images/about-phone-2-shadow.png';
+import AppPhone from '../../assets/images/about-app-phone-2.png';
+import Icon1 from '../../assets/images/icon-1.png';
+import Icon2 from '../../assets/images/icon-2.png';
+import Icon3 from '../../assets/images/icon-3.png';
+import Icon4 from '../../assets/images/icon-4.png';
 
 const Footer = loadable(() => import('../../components/footer/footer.component'), {
     fallback: <div>Loading...</div>,
@@ -83,6 +89,26 @@ export class AboutPage extends React.Component {
                     </div>
                     <h1>CYBER</h1>
                     <h3>REDIFINING THE WAY OF LIFE</h3>
+                </div>
+                <div className="appFeatureWrap">
+                    <div className="clipbg"/>
+                    <Container>
+                        <h2 className="text-center">We have fit <br/>every service in to <span>1</span> app</h2>
+                        <p className="text-center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis</p>
+                        <div className="appFeatures d-flex justify-content-between">
+                            <div className="iconWrap leftIcons">
+                                <img className="icon1" src={Icon1} alt="icon 1" />
+                                <img className="icon3" src={Icon3} alt="icon 3" />
+                            </div>
+                            <div className="appPhone">
+                                <img src={AppPhone} alt="Phone App" />
+                            </div>
+                            <div className="iconWrap rightIcons">
+                                <img className="icon2" src={Icon2} alt="icon 2" />
+                                <img className="icon4" src={Icon4} alt="icon 4" />
+                            </div>
+                        </div>
+                    </Container>
                 </div>
                 <Footer/>
             </div>
