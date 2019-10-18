@@ -57,7 +57,6 @@ const bounceTransition = {
 function App() {
   return (
     <div>
-      {console.log('BaseURL' , BaseURL)}
       <Header/>
       <AnimatedSwitch
         atEnter={bounceTransition.atEnter}

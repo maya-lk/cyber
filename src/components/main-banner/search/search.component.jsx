@@ -6,26 +6,24 @@ import FormControl from 'react-bootstrap/FormControl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { setSearchItem } from '../../../redux/search/search.actions';
 
 import './search.styles.scss';
 
 const BaseURL = ( process.env.NODE_ENV === 'development' ) ? '/' : `${process.env.PUBLIC_URL}/` ;
 
 class Search extends React.Component{
-    constructor(props){
-        super(props);
-
-        this.state = {
-            searchItem : ''
-        }
-    }
 
     handleClick = event => {
         event.preventDefault();
-        this.props.history.push(`${BaseURL}search/${this.state.searchItem}`);
+        const { searchItem } = this.props;
+
+        this.props.history.push(`${BaseURL}search/${searchItem}`);
         setTimeout(
             function() {
-                this.setState({ searchItem : '' });
+                this.props.setSearchItem('');
             }
             .bind(this),
             3000
@@ -34,10 +32,11 @@ class Search extends React.Component{
 
     handleChange = event => {
         const { value } = event.target;
-        this.setState({ searchItem : value })
+        this.props.setSearchItem( value );
     }
 
     render(){
+        const { searchItem } = this.props;
         return(
             <div className="searchWrapper">
                 <h4>What can we help you with today?</h4>
@@ -48,7 +47,7 @@ class Search extends React.Component{
                             aria-label="Type in any service or any vendor you are looking for"
                             aria-describedby="searchSubmit"
                             name="searchItem"
-                            value={this.state.searchItem}
+                            value={searchItem}
                             onChange={this.handleChange}
                         />
                         <InputGroup.Append>
@@ -69,4 +68,12 @@ class Search extends React.Component{
     }
 }
 
-export default withRouter(Search);
+const mapStateToProps = ({ search }) => ({
+    searchItem : search.searchItem
+});
+
+const mapDispachToProps = dispach => ({
+    setSearchItem : (searchItem) => dispach( setSearchItem(searchItem) )
+});
+
+export default connect(mapStateToProps , mapDispachToProps)(withRouter(Search));

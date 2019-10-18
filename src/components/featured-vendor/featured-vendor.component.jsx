@@ -2,6 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel';
+import { connect } from 'react-redux';
 
 import './featured-vendor.styles.scss';
 import 'owl.carousel/dist/assets/owl.carousel.css';
@@ -10,6 +11,7 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import API from '../../lib/api';
 
 import Seller from '../seller/seller.component';
+import { setFeaturedSellers } from '../../redux/home/home.actions';
 
 const BaseURL = ( process.env.NODE_ENV === 'development' ) ? '/' : `${process.env.PUBLIC_URL}/` ;
 
@@ -35,26 +37,22 @@ class FeaturedVendor extends React.Component {
                         items:3
                     }
                 }
-            },
-            sellers : '',
-            isMounted: false,
+            }
         }
     }
 
     componentDidMount(){
-        const self = this;
+        const { setFeaturedSellers } = this.props;
+
         API.get('featured-sellers')
         .then(function(response){
-            self.setState({ 
-                sellers : response.data,
-                isMounted: true
-            });
+            setFeaturedSellers( response.data );
         });
     }
 
     render(){
-        const { sellers } = this.state;
-        if (!this.state.isMounted) {
+        const { sellers } = this.props;
+        if (!sellers) {
             return null;
         }
         return(
@@ -68,12 +66,15 @@ class FeaturedVendor extends React.Component {
                         {...this.state.options}
                     >
                         {
-                            Object.values(sellers)
-                                .map(({id , ...otherTermProps}) => (
-                                    <Seller key={id} {...otherTermProps}/>
-                                ))
+                            ( sellers ) ?
+                                Object.values(sellers)
+                                    .map(({id , ...otherTermProps}) => (
+                                        <Seller key={id} {...otherTermProps}/>
+                                    ))
+                            : ''
                         }
                     </OwlCarousel>
+                    {console.log(sellers)}
                     <Link to={`${BaseURL}sellers`} className="btn loadMore">Load More</Link>
                 </Container>
             </div>
@@ -81,6 +82,12 @@ class FeaturedVendor extends React.Component {
     }
 }
 
-export default FeaturedVendor;
+const mapStateToProps = ({ home }) => ({
+    sellers : home.sellers
+});
 
-//<Seller key={id} {...otherTermProps}/>
+const mapDispachToProps = dispach => ({
+    setFeaturedSellers : (sellers) => dispach( setFeaturedSellers(sellers) )
+});
+
+export default connect(mapStateToProps , mapDispachToProps)(FeaturedVendor);

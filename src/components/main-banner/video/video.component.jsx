@@ -1,11 +1,13 @@
 import React from 'react';
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
+import { connect } from 'react-redux';
 
 import './video.styles.scss';
 
 import API from '../../../lib/api';
 
 import PhoneBG from '../../../assets/images/phone-bg.png';
+import { setVideoUrl , setVideoAnimatedClass } from '../../../redux/home/home.actions';
 
 class Video extends React.Component {
     constructor(){
@@ -18,32 +20,31 @@ class Video extends React.Component {
     }
 
     componentDidMount(){
-        const self = this;
+        const { setVideoUrl } = this.props;
+
         API.get('home')
         .then(function(response){
-            self.setState({ 
-                videoUrl : response.data.main_video
-            });
+            setVideoUrl( response.data.main_video );
         }); 
         
     }
 
     videoOnReady = () => {
         setTimeout(function(){
-            this.setState({ animated : 'animated' });
+            this.props.setVideoAnimatedClass( 'animated' );
         }.bind(this), 1500);
     }
 
     render(){
         return(
-            <div className={`${this.state.animated} animWrap`}>
+            <div className={`${this.props.animated} animWrap`}>
                 <span
                     style={{ backgroundImage : `url(${PhoneBG})` }} 
                     className="videoBg"
                 />
                 <div className="videoWrap">
                     <ReactPlayer 
-                        url={this.state.videoUrl}
+                        url={this.props.videoUrl}
                         playing
                         loop
                         playsinline
@@ -58,4 +59,14 @@ class Video extends React.Component {
     }
 }
 
-export default Video;
+const mapStateToProps = ({ home : { videoUrl , animated } }) => ({
+    videoUrl,
+    animated
+});
+
+const mapDispachToProps = dispach => ({
+    setVideoUrl : (videoUrl) => dispach( setVideoUrl(videoUrl) ),
+    setVideoAnimatedClass : (animated) => dispach( setVideoAnimatedClass(animated) )
+});
+
+export default connect(mapStateToProps , mapDispachToProps)(Video);
