@@ -190,13 +190,112 @@
                 position: relative;
 
                 .iconWrap {
-                    position: relative; 
+                    position: absolute;
+                    width: 20%;
+                    top: 0;
+                    height: 100%;
+                    
+                    &.leftIcons{
+                        left: 11%;
+                    }
+
+                    &.rightIcons{
+                        right: 0;
+                    }
 
                     img {
                         position: absolute;
+
+                        &.animateSmall{                
+                            animation-name: bounceImage;
+                            -webkit-animation-name: bounceImage;
+                            -webkit-animation-iteration-count: infinite;
+                            animation-iteration-count: infinite;
+                            -webkit-animation-fill-mode: both;
+                            animation-fill-mode: both;
+                        }
+                    }
+                    .icon1{
+                        top: 22%;
+                        &.animateSmall{
+                            -webkit-animation-duration: 2s;
+                            animation-duration: 2s;
+                        }
+                    }
+                    .icon2{
+                        top: 21%;
+                        &.animateSmall{
+                            -webkit-animation-duration: 2.5s;
+                            animation-duration: 2.5s;
+                        }
+                    }
+                    .icon3{
+                        bottom: 21%;
+                        &.animateSmall{
+                            -webkit-animation-duration: 2.5s;
+                            animation-duration: 2.5s;
+                        }
+                    }
+                    .icon4{
+                        bottom: 21%;
+                        &.animateSmall{
+                            -webkit-animation-duration: 2s;
+                            animation-duration: 2s;
+                        }
                     }
                 }
             }
         }
     }
 }
+
+/******************** Animations **********************/
+@-webkit-keyframes bounceImage {
+    from,
+    to {
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+  
+    40%,
+    43% {
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-transform: translate3d(0, 18px, 0);
+        transform: translate3d(0, 18px, 0);
+    }
+  
+    90% {
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-transform: translate3d(0, -4px, 0);
+        transform: translate3d(0, -4px, 0);
+    }
+  }
+  
+  @keyframes bounceImage {
+    from,
+    to {
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+  
+    40%,
+    43% {
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-transform: translate3d(0, 18px, 0);
+        transform: translate3d(0, 18px, 0);
+    }
+  
+    90% {
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-transform: translate3d(0, -4px, 0);
+        transform: translate3d(0, -4px, 0);
+    }
+  }

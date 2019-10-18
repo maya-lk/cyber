@@ -11,6 +11,7 @@ const Header = loadable(() => import('./components/header/header.component'));
 const HomePage = loadable(() => import('./pages/homepage/home.components'));
 const SearchPage = loadable(() => import('./pages/searchpage/searchpage.component'));
 const AboutPage = loadable(() => import('./pages/aboutpage/aboutpage.component'));
+const ServicePage = loadable(() => import('./pages/servicepage/servicepage.component'));
 
 const BaseURL = ( process.env.NODE_ENV === 'development' ) ? '/' : `${process.env.PUBLIC_URL}/` ;
 
@@ -69,6 +70,7 @@ function App() {
         <Route exact path={`${BaseURL}search`} component={SearchPage} />
         <Route exact path={`${BaseURL}search/:id`} component={SearchPage} />
         <Route exact path={`${BaseURL}about`} component={AboutPage} />
+        <Route exact path={`${BaseURL}services`} component={ServicePage} />
       </AnimatedSwitch>
     </div>
   );
