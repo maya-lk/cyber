@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import './featured-vendor.styles.scss';
 import 'owl.carousel/dist/assets/owl.carousel.css';
@@ -12,6 +13,7 @@ import API from '../../lib/api';
 
 import Seller from '../seller/seller.component';
 import { setFeaturedSellers } from '../../redux/home/home.actions';
+import { selectFeaturedSeller } from '../../redux/home/home.selector';
 
 const BaseURL = ( process.env.NODE_ENV === 'development' ) ? '/' : `${process.env.PUBLIC_URL}/` ;
 
@@ -82,8 +84,8 @@ class FeaturedVendor extends React.Component {
     }
 }
 
-const mapStateToProps = ({ home }) => ({
-    sellers : home.sellers
+const mapStateToProps = createStructuredSelector({
+    sellers : selectFeaturedSeller
 });
 
 const mapDispachToProps = dispach => ({

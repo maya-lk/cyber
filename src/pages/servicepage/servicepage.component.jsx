@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import './servicepage.styles.scss';
 
 import ServiceBannerImage from '../../assets/images/service-banner-image.png';
-import { setServicesListing } from '../../redux/services/services.actions';
+//import { setServicesListing } from '../../redux/services/services.actions';
 
 const Footer = loadable(() => import('../../components/footer/footer.component'), {
     fallback: <div>Loading...</div>,
@@ -33,7 +33,7 @@ class ServicePage extends React.Component {
                         <div className="textWrap">
                             <h1>Having Sudden cravings?</h1>
                             <h3>we got your back, we have <span>150+ Resturants</span> to select from</h3>
-                            <a href="#" className="btn">SHOW ME THE FOOD</a>
+                            <span className="btn">SHOW ME THE FOOD</span>
                         </div>
                         <div className="imageWrap">
                             <img src={ServiceBannerImage} alt="Service Banner" />
