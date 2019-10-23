@@ -5,8 +5,12 @@ import { connect } from 'react-redux';
 
 import './servicepage.styles.scss';
 
+import API from '../../lib/api';
+
+import Seller from '../../components/seller/seller.component';
+
 import ServiceBannerImage from '../../assets/images/service-banner-image.png';
-//import { setServicesListing } from '../../redux/services/services.actions';
+import { setServicesListing } from '../../redux/services/services.actions';
 
 const Footer = loadable(() => import('../../components/footer/footer.component'), {
     fallback: <div>Loading...</div>,
@@ -14,18 +18,17 @@ const Footer = loadable(() => import('../../components/footer/footer.component')
 
 class ServicePage extends React.Component {
 
-    constructor(){
-        super();
-
-        this.state = {
-        }
-    }
-
     componentDidMount(){
+        const { setServicesListing } = this.props;
 
+        API.get('vendors')
+        .then(function(response){
+            setServicesListing( response.data );
+        });
     }
 
     render() {
+        const { serviceListing } = this.props;
         return (
             <div className="servicesPage">
                 <div className="servicesBannerWrap">
@@ -44,7 +47,15 @@ class ServicePage extends React.Component {
                 <div className="servicesListingWrap">
                     <Container className="d-flex justify-content-between flex-wrap">
                         <div className="sidebar"></div>
-                        <div className="servicesListing"></div>
+                        <div className="servicesListing">
+                            {
+                                (serviceListing) ?
+                                serviceListing.map(({id , ...otherServiceProps}) => (
+                                    <Seller key={id} {...otherServiceProps}/>
+                                ))
+                                : ''
+                            }
+                        </div>
                     </Container>
                 </div>
                 <Footer/>
@@ -58,4 +69,8 @@ const mapStateToProps = ({ services }) => ({
     serviceListing : services.serviceListing
 });
 
-export default connect(mapStateToProps)(ServicePage);
+const mapDispachToProps = dispach => ({
+    setServicesListing : (services) => dispach( setServicesListing(services) )
+});
+
+export default connect(mapStateToProps , mapDispachToProps)(ServicePage);

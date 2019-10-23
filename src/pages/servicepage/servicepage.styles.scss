@@ -62,5 +62,27 @@
 
     .servicesListingWrap {
         padding: 2rem 0;
+
+        .container {
+            max-width: 1650px;
+            padding: 0 2rem;
+
+            .sidebar {
+                width: 22%;
+                background-color: #eee;
+            }
+
+            .servicesListing {
+                width: 75%;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            .seller {
+                width: 30%;
+                margin-bottom: 2rem;
+            }
+        }
     }
 }
