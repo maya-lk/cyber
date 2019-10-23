@@ -1,14 +1,18 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import './term.styles.scss';
 
-const Term = ({ id , name , imageUrl , imageAlt }) => (
-    <div className="term" id={id}>
-        <div className="img">
-            <img src={imageUrl} alt={imageAlt}/>
+const Term = ({ term , history }) => {
+    const { id , name , imageUrl , imageAlt , slug } = term;
+    return(
+        <div className="term" id={id} onClick={ () => history.push(`/services/${slug}`) }>
+            <div className="img">
+                <img src={imageUrl} alt={imageAlt}/>
+            </div>
+            <h5>{name}</h5>
         </div>
-        <h5>{name}</h5>
-    </div>
-);
+    )
+};
 
-export default Term;
+export default withRouter(Term);

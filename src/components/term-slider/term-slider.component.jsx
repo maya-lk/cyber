@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from "react-slick";
+import { connect } from 'react-redux';
 
 import './term-slider.styles.scss';
 import "slick-carousel/slick/slick.css";
@@ -11,29 +12,21 @@ import API from '../../lib/api';
 
 import TermSliderItem from './term-slider-item/term-slider-item.component';
 
-class TermSlider extends React.Component {
-    constructor(){
-        super();
+import { setServiceTerms } from '../../redux/services/services.actions';
 
-        this.state = {
-            termSLider : '',
-            isMounted : false
-        }
-    }
+class TermSlider extends React.Component {
 
     componentDidMount(){
-        const self = this;
+        const { setServiceTerms } = this.props;
+
         API.get('term-slider')
         .then(function(response){
-            self.setState({ 
-                termSLider : response.data,
-                isMounted: true
-            });
+            setServiceTerms(response.data);
         });
     }
 
     render(){
-        const { termSLider } = this.state;
+        const { serviceTerms } = this.props;        
         var settings = {
             centerMode: true,
             centerPadding: '60px',
@@ -64,7 +57,8 @@ class TermSlider extends React.Component {
                 }
             ]
         };
-        if (!this.state.isMounted) {
+        
+        if (serviceTerms === null) {
             return null;
         }
 
@@ -78,10 +72,9 @@ class TermSlider extends React.Component {
             >
                 <Slider {...settings}>
                     {
-                        Object.values(termSLider)
-                            .map(({id , ...otherTermProps}) => (
-                                <TermSliderItem key={id} {...otherTermProps}/>
-                            ))
+                        serviceTerms.map((term) => (
+                            <TermSliderItem key={term.id} term={term}/>
+                        ))
                     }
                 </Slider>
             </div>
@@ -89,4 +82,12 @@ class TermSlider extends React.Component {
     }
 }
 
-export default TermSlider;
+const mapStateToProps = ({ services }) => ({
+    serviceTerms : services.serviceTerms
+})
+
+const mapDispatchToProps = dispatch => ({
+    setServiceTerms : (services) => dispatch(setServiceTerms(services))
+});
+
+export default connect(mapStateToProps , mapDispatchToProps)(TermSlider);

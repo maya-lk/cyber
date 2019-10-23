@@ -76,7 +76,6 @@ class FeaturedVendor extends React.Component {
                             : ''
                         }
                     </OwlCarousel>
-                    {console.log(sellers)}
                     <Link to={`${BaseURL}sellers`} className="btn loadMore">Load More</Link>
                 </Container>
             </div>

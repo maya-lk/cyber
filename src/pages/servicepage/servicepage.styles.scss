@@ -19,12 +19,13 @@
 
             .bigText {
                 position: absolute;
-                bottom: -6rem;
+                bottom: -5rem;
                 left: -1rem;
                 font-weight: 900;
-                font-size: 18rem;
+                font-size: 14rem;
                 margin-bottom: 0;
-                color: rgba(255,255,255 ,0.3);
+                color: rgba(255, 255, 255, 0.3);
+                text-transform: uppercase;
             }
 
             .textWrap {

@@ -36,8 +36,8 @@ class VendorCategory extends React.Component{
                         {   
                             ( vendorCategory ) ?
                                 Object.values(vendorCategory)
-                                    .map(({id , ...otherTermProps}) => (
-                                        <Term key={id} {...otherTermProps}/>
+                                    .map((term) => (
+                                        <Term key={term.id} term={term}/>
                                     ))
                             : ''
                         }

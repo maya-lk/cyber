@@ -1,16 +1,16 @@
 import React from 'react';
 import loadable from '@loadable/component';
-import Container from 'react-bootstrap/Container';
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 
 import './servicepage.styles.scss';
 
 import API from '../../lib/api';
 
-import Seller from '../../components/seller/seller.component';
+import TermPage from '../termPage/termPage.component';
+import TermsOverview from '../../components/term-overview/term-overview.component';
 
-import ServiceBannerImage from '../../assets/images/service-banner-image.png';
-import { setServicesListing } from '../../redux/services/services.actions';
+import { setServicesListing , setServiceTerms } from '../../redux/services/services.actions';
 
 const Footer = loadable(() => import('../../components/footer/footer.component'), {
     fallback: <div>Loading...</div>,
@@ -19,45 +19,27 @@ const Footer = loadable(() => import('../../components/footer/footer.component')
 class ServicePage extends React.Component {
 
     componentDidMount(){
-        const { setServicesListing } = this.props;
+        const { setServicesListing , setServiceTerms } = this.props;
 
         API.get('vendors')
         .then(function(response){
             setServicesListing( response.data );
         });
+
+        API.get('term-slider')
+        .then(function(response){
+            setServiceTerms(response.data);
+        });
+
     }
 
     render() {
-        const { serviceListing } = this.props;
+        const { match } = this.props;
+        
         return (
             <div className="servicesPage">
-                <div className="servicesBannerWrap">
-                    <Container className="d-flex">
-                        <div className="textWrap">
-                            <h1>Having Sudden cravings?</h1>
-                            <h3>we got your back, we have <span>150+ Resturants</span> to select from</h3>
-                            <span className="btn">SHOW ME THE FOOD</span>
-                        </div>
-                        <div className="imageWrap">
-                            <img src={ServiceBannerImage} alt="Service Banner" />
-                        </div>
-                        <h2 className="bigText">FOOD</h2>
-                    </Container>
-                </div>
-                <div className="servicesListingWrap">
-                    <Container className="d-flex justify-content-between flex-wrap">
-                        <div className="sidebar"></div>
-                        <div className="servicesListing">
-                            {
-                                (serviceListing) ?
-                                serviceListing.map(({id , ...otherServiceProps}) => (
-                                    <Seller key={id} {...otherServiceProps}/>
-                                ))
-                                : ''
-                            }
-                        </div>
-                    </Container>
-                </div>
+                <Route exact path={`${match.path}`} component={TermsOverview} />
+                <Route path={`${match.path}/:termId`} component={TermPage} />                
                 <Footer/>
             </div>
         )
@@ -65,12 +47,9 @@ class ServicePage extends React.Component {
 
 }
 
-const mapStateToProps = ({ services }) => ({
-    serviceListing : services.serviceListing
+const mapDispatchToProps = dispatch => ({
+    setServicesListing : (services) => dispatch( setServicesListing(services) ),
+    setServiceTerms : (services) => dispatch( setServiceTerms(services) )
 });
 
-const mapDispachToProps = dispach => ({
-    setServicesListing : (services) => dispach( setServicesListing(services) )
-});
-
-export default connect(mapStateToProps , mapDispachToProps)(ServicePage);
+export default connect(null , mapDispatchToProps)(ServicePage);

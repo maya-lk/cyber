@@ -1,0 +1,29 @@
+.termOverviewWrap{
+    .termBanner {
+        background-color: #b0ba39;
+        min-height: 400px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+    }
+
+    .container{
+        max-width: 1400px;
+        padding: 2rem 1rem;
+
+        .term {
+            width: 24%;
+            margin-bottom: 2rem;
+
+            .img {
+                background-color: #eee;
+            }
+
+            h5 {
+                color: #000;
+            }
+        }
+    }
+}

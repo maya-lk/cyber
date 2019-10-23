@@ -70,7 +70,7 @@ function App() {
         <Route exact path={`${BaseURL}search`} component={SearchPage} />
         <Route exact path={`${BaseURL}search/:id`} component={SearchPage} />
         <Route exact path={`${BaseURL}about`} component={AboutPage} />
-        <Route exact path={`${BaseURL}services`} component={ServicePage} />
+        <Route path={`${BaseURL}services`} component={ServicePage} />
       </AnimatedSwitch>
     </div>
   );
